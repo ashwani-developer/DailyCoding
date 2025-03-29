@@ -1,4 +1,6 @@
 public class Day1 {
-    !
-    s
+
+    public static void main(String[] args) {
+
+    }
 }

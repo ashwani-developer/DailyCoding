@@ -1,4 +1,5 @@
 import java.util.Stack;
+import java.util.stream.Stream;
 
 public class ValidParenthesis {
 
@@ -6,22 +7,18 @@ public class ValidParenthesis {
 
     public static void main(String[] args) {
 
-        String st = "{[(])}";
-        char[] ch = new char[st.length()];
-        for (int i = 0; i < ch.length; i++) {
-            ch[i] = st.charAt(i);
-
-        }
+        String st = "()()()()()()()()()()()()()()()";
         Stack<Character> stck = new Stack<>();
-        for (char t : ch) {
-            if (t == '{' || t == '[' || t == '(') {
-                stck.push(t);
-            } else if ((t == '}' && stck.peek() == '{') || (t == ')' && stck.peek() == '(') || (t == ']' && stck.peek() == '[')){
-                   stck.pop();
+
+        for (int t = 0; t < st.length(); t++) {
+            if (st.charAt(t) == '{' || st.charAt(t) == '[' || st.charAt(t) == '(') {
+                stck.push(st.charAt(t));
+            } else if ((st.charAt(t) == '}' && stck.peek() == '{') || (st.charAt(t) == ')' && stck.peek() == '(') || (st.charAt(t) == ']' && stck.peek() == '[')) {
+                stck.pop();
             }
 
         }
-        System.out.println("Valid stingg"+ !(stck.size()>0));
+        System.out.println("Valid stingg" + !(stck.size() > 0));
 
 
     }
